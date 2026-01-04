@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#header {
+  padding: 1rem 4rem;
+  background-color: #222;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px #aaa;
+}
+#title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  color: #00ff00;
+}
+#timer {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #00ff00;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <title>Pure React App Part-2</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const rootEl = document.getElementById("root");
+
+      function NavMenu() {
+        return React.createElement(
+          "ul",
+          { className: "navbar-nav" },
+          React.createElement(
+            "li",
+            { className: "nav-item" },
+            React.createElement(
+              "a",
+              { href: "/", className: "nav-link" },
+              "Home"
+            )
+          ),
+          React.createElement(
+            "li",
+            { className: "nav-item" },
+            React.createElement(
+              "a",
+              { href: "/about", className: "nav-link" },
+              "About Us"
+            )
+          ),
+          React.createElement(
+            "li",
+            { className: "nav-item" },
+            React.createElement(
+              "a",
+              { href: "/services", className: "nav-link" },
+              "Services"
+            )
+          ),
+          React.createElement(
+            "li",
+            { className: "nav-item" },
+            React.createElement(
+              "a",
+              { href: "/login", className: "nav-link" },
+              "Signup / Login"
+            )
+          )
+        );
+      }
+      function Navbar() {
+        return React.createElement(
+          "div",
+          {
+            className: ["navbar", "navbar-expand-lg"],
+          },
+          React.createElement(
+            "div",
+            { className: "container-fluid" },
+            React.createElement("h2", { className: "navbar-brand" }, "Brand"),
+            <NavMenu />
+          )
+        );
+      }
+
+      function App() {
+        return React.createElement(
+          "div",
+          { className: "container-fluid" },
+          <Navbar />
+        );
+      }
+
+      const root = ReactDOM.createRoot(rootEl);
+      root.render(<App />);
+    </script>
+  </body>
+</html>
