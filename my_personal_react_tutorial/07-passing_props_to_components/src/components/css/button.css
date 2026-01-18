@@ -12,3 +12,22 @@
   background-color: #007474;
   box-shadow: 0 1px 10px #aaa;
 }
+
+@media screen and (max-width: 768px) {
+  .btn {
+    width: 100%;
+    padding: 0.4rem 0;
+    display: block;
+    background-color: #009292;
+    color: #f5f5dc;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .btn:hover {
+    background-color: #007474;
+    box-shadow: 0 1px 8px #aaa;
+  }
+}
