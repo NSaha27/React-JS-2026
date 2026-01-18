@@ -12,7 +12,7 @@ function App() {
     pContactNumber: "+918981584700",
     pContactEmail: "sahaniladri27y@gmail.com",
     pGitHubAccLink: "152137415+NSaha27@users.noreply.github.com",
-    pLinkedInAccLink: "www.linkedin.com/in/niladri-saha-221046214",
+    pLinkedInAccLink: "152137415+NSaha27@users.noreply.github.com",
   };
 
   return (
