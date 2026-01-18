@@ -9,7 +9,7 @@ function Card({ profile }) {
       <Avatar
         pImgFileName={profile.pImgFileName}
         imgName={"profile image"}
-        size={110}
+        size={120}
       />
       <Profile profile={{ ...profile }} />
       <Footer profile={{ ...profile }} />
