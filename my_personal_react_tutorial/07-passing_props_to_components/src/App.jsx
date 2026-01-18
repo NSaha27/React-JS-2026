@@ -10,7 +10,7 @@ function App() {
       "Full‑stack web developer with expertise in JavaScript, React, Node.js, and databases. I enjoy crafting seamless user experiences and robust server‑side systems, constantly learning new tools to stay ahead in the fast‑evolving tech landscape.",
     pLocation: "Howrah, West Bengal",
     pContactNumber: "+918981584700",
-    pContactEmail: "sahaniladri734@gmail.com",
+    pContactEmail: "sahaniladri27y@gmail.com",
     pGitHubAccLink: "152137415+NSaha27@users.noreply.github.com",
     pLinkedInAccLink: "www.linkedin.com/in/niladri-saha-221046214",
   };
