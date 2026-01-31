@@ -1,0 +1,68 @@
+.post-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0;
+}
+.post-container h3 {
+  text-align: center;
+}
+.post-container .card {
+  width: 40%;
+  margin: 2rem auto 0;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  box-shadow: 0 1px 18px #222;
+  padding: 2rem;
+  background-color: #fafad7;
+}
+.post-container .card .card-header {
+  margin-bottom: 1.5rem;
+}
+.post-container .card .card-header h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #800000;
+}
+.post-container .card .card-body {
+  margin-bottom: 1.5rem;
+}
+.post-container .card .card-body p {
+  font-size: 1rem;
+  color: #222;
+  text-align: justify;
+  line-height: 1.3rem;
+  margin-bottom: 1.8rem;
+}
+.post-container .card .card-body p.tags {
+  display: flex;
+  gap: 0.5rem;
+}
+.post-container .card .card-body p.tags span {
+  padding: 0.3rem 0.8rem;
+  border: 2px solid #222;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.post-container .card .card-body p.views {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 600;
+}
+.post-container .card .card-footer {
+  border-top: 2px solid #aaa;
+  padding: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.post-container .card .card-footer svg {
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
