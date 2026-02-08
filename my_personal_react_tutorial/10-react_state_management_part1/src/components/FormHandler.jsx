@@ -1,25 +1,68 @@
 import { useState } from "react";
 
 function FormHandler() {
-  const [stuName, setStuName] = useState(null);
-  const [stuDOB, setStuDOB] = useState(null);
+  const [textFormData, setTextFormData] = useState({
+    stuName: "",
+    stuDOB: "",
+    stuAddress: "",
+    stuPhone: "",
+    stuEmail: "",
+    stuStandard: "",
+  });
   const [stuGender, setStuGender] = useState("male");
-  const [stuAddress, setStuAddress] = useState(null);
-  const [stuPhone, setStuPhone] = useState(null);
-  const [stuEmail, setStuEmail] = useState(null);
-  const [stuStandard, setStuStandard] = useState(null);
-  const [stuSubject, setStuSubject] = useState(false);
+  const [stuSubject, setStuSubject] = useState([]);
+
+  const handleChange = (ev) => {
+    const { name, value } = ev.target;
+    setTextFormData((existingData) => ({ ...existingData, [name]: value }));
+  };
+
+  const handleStuGender = (ev) => {
+    setStuGender(ev.target.value);
+  };
+
+  const handleStuSubject = (ev) => {
+    const { value, checked } = ev.target;
+    if (checked) {
+      setStuSubject((prevSubjects) => [...prevSubjects, value]);
+    } else {
+      setStuSubject((prevSubjects) =>
+        prevSubjects.filter((sub) => sub !== value),
+      );
+    }
+  };
 
   const handleFormSubmit = (ev) => {
     ev.preventDefault();
-    console.log(ev.target);
+
+    alert(`Student details:
+    Name: ${textFormData.stuName}
+    Date of birth: ${textFormData.stuDOB}
+    Gender: ${stuGender}
+    Address: ${textFormData.stuAddress}
+    Phone: ${textFormData.stuPhone}
+    Email: ${textFormData.stuEmail}
+    Standard: ${textFormData.stuStandard}
+    Subjects: ${stuSubject.toString()}
+      `);
+
+    setTextFormData({
+      stuName: "",
+      stuDOB: "",
+      stuAddress: "",
+      stuPhone: "",
+      stuEmail: "",
+      stuStandard: "",
+    });
+    setStuGender("male");
+    setStuSubject([]);
   };
 
   return (
     <div className="form-handler">
       <h2 className="form-title">Student Registration</h2>
       <div className="">
-        <form method="post" onSubmit={(ev) => handleFormSubmit(ev)}>
+        <form method="post" onSubmit={handleFormSubmit}>
           <div className="mb-3">
             <label htmlFor="stuName" className="form-label">
               Name
@@ -29,8 +72,8 @@ function FormHandler() {
               name="stuName"
               id="stuName"
               className="form-control"
-              value={stuName}
-              onChange={(ev) => setStuName(ev.target["stuName"].value)}
+              value={textFormData.stuName}
+              onChange={handleChange}
             />
           </div>
           <div className="mb-3">
@@ -42,8 +85,8 @@ function FormHandler() {
               name="stuDOB"
               id="stuDOB"
               className="form-control"
-              value={stuDOB}
-              onChange={(ev) => setStuDOB(ev.target["stuDOB"].value)}
+              value={textFormData.stuDOB}
+              onChange={handleChange}
             />
           </div>
           <div className="mb-3">
@@ -55,9 +98,9 @@ function FormHandler() {
               name="stuGender"
               id="stuGender"
               className=""
-              value={"male"}
-              checked={stuGender === "male" ? true : false}
-              onSelect={(ev) => setStuGender(ev.target["stuGender"].value)}
+              value="male"
+              checked={stuGender === "male"}
+              onChange={handleStuGender}
             />{" "}
             Male
             <input
@@ -65,9 +108,9 @@ function FormHandler() {
               name="stuGender"
               id="stuGender"
               className=""
-              value={"female"}
-              checked={stuGender === "female" ? true : false}
-              onSelect={(ev) => setStuGender(ev.target["stuGender"].value)}
+              value="female"
+              checked={stuGender === "female"}
+              onChange={handleStuGender}
             />{" "}
             Female
             <input
@@ -75,9 +118,9 @@ function FormHandler() {
               name="stuGender"
               id="stuGender"
               className=""
-              value={"other"}
-              checked={stuGender === "other" ? true : false}
-              onSelect={(ev) => setStuGender(ev.target["stuGender"].value)}
+              value="other"
+              checked={stuGender === "other"}
+              onChange={handleStuGender}
             />{" "}
             Other
           </div>
@@ -90,8 +133,8 @@ function FormHandler() {
               id="stuAddress"
               className="form-control"
               rows={8}
-              value={stuAddress}
-              onChange={(ev) => setStuAddress(ev.target["stuAddress"].value)}
+              value={textFormData.stuAddress}
+              onChange={handleChange}
             ></textarea>
           </div>
           <div className="mb-3">
@@ -103,8 +146,8 @@ function FormHandler() {
               name="stuPhone"
               id="stuPhone"
               className="form-control"
-              value={stuPhone}
-              onChange={(ev) => setStuPhone(ev.target["stuPhone"].value)}
+              value={textFormData.stuPhone}
+              onChange={handleChange}
             />
           </div>
           <div className="mb-3">
@@ -116,8 +159,8 @@ function FormHandler() {
               name="stuEmail"
               id="stuEmail"
               className="form-control"
-              value={stuEmail}
-              onChange={(ev) => setStuEmail(ev.target["stuEmail"].value)}
+              value={textFormData.stuEmail}
+              onChange={handleChange}
             />
           </div>
           <div className="mb-3">
@@ -128,47 +171,18 @@ function FormHandler() {
               name="stuStandard"
               id="stuStandard"
               className="form-control"
-              onChange={(ev) => setStuStandard(ev.target["stuStandard"].value)}
+              value={textFormData.stuStandard}
+              onChange={handleChange}
             >
-              <option defaultValue="" defaultChecked={false} disabled>
+              <option value="" disabled>
                 choose an option
               </option>
-              <option
-                value="7"
-                defaultChecked={stuStandard === "7" ? true : false}
-              >
-                7th
-              </option>
-              <option
-                value="8"
-                defaultChecked={stuStandard === "8" ? true : false}
-              >
-                8th
-              </option>
-              <option
-                value="9"
-                defaultChecked={stuStandard === "9" ? true : false}
-              >
-                9th
-              </option>
-              <option
-                value="10"
-                defaultChecked={stuStandard === "10" ? true : false}
-              >
-                10th
-              </option>
-              <option
-                value="11"
-                defaultChecked={stuStandard === "11" ? true : false}
-              >
-                11th
-              </option>
-              <option
-                value="12"
-                defaultChecked={stuStandard === "12" ? true : false}
-              >
-                12th
-              </option>
+              <option value="7">7th</option>
+              <option value="8">8th</option>
+              <option value="9">9th</option>
+              <option value="10">10th</option>
+              <option value="11">11th</option>
+              <option value="12">12th</option>
             </select>
           </div>
           <div className="mb-3">
@@ -181,58 +195,68 @@ function FormHandler() {
               id="stuSubject"
               className=""
               value={"language"}
-              checked={stuSubject === "language" ? true : false}
-              onChange={(ev) => setStuSubject(ev.target["stuSubject"].value)}
+              checked={stuSubject.includes("language")}
+              onChange={handleStuSubject}
             />{" "}
-            Language
+            Language{" "}
             <input
               type="checkbox"
               name="stuSubject"
               id="stuSubject"
               className=""
               value={"arts"}
-              checked={stuSubject === "arts" ? true : false}
-              onChange={(ev) => setStuSubject(ev.target["stuSubject"].value)}
+              checked={stuSubject.includes("arts")}
+              onChange={handleStuSubject}
             />{" "}
-            Arts
+            Arts{" "}
             <input
               type="checkbox"
               name="stuSubject"
               id="stuSubject"
               className=""
               value={"science"}
-              checked={stuSubject === "science" ? true : false}
-              onChange={(ev) => setStuSubject(ev.target["stuSubject"].value)}
+              checked={stuSubject.includes("science")}
+              onChange={handleStuSubject}
             />{" "}
-            Science
+            Science{" "}
             <input
               type="checkbox"
               name="stuSubject"
               id="stuSubject"
               className=""
               value={"biology"}
-              checked={stuSubject === "biology" ? true : false}
-              onChange={(ev) => setStuSubject(ev.target["stuSubject"].value)}
+              checked={stuSubject.includes("biology")}
+              onChange={handleStuSubject}
             />{" "}
-            Biology
+            Biology{" "}
             <input
               type="checkbox"
               name="stuSubject"
               id="stuSubject"
               className=""
               value={"computer science"}
-              checked={stuSubject === "computer science" ? true : false}
-              onChange={(ev) => setStuSubject(ev.target["stuSubject"].value)}
+              checked={stuSubject.includes("computer science")}
+              onChange={handleStuSubject}
             />{" "}
-            Computer Science
+            Computer Science{" "}
+            <input
+              type="checkbox"
+              name="stuSubject"
+              id="stuSubject"
+              className=""
+              value={"commerce"}
+              checked={stuSubject.includes("commerce")}
+              onChange={handleStuSubject}
+            />{" "}
+            Commerce{" "}
             <input
               type="checkbox"
               name="stuSubject"
               id="stuSubject"
               className=""
               value={"others"}
-              checked={stuSubject === "others" ? true : false}
-              onChange={(ev) => setStuSubject(ev.target["stuSubject"].value)}
+              checked={stuSubject.includes("others")}
+              onChange={handleStuSubject}
             />{" "}
             Others
           </div>
