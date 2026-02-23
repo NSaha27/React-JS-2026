@@ -38,6 +38,6 @@
   text-align: justify;
 }
 .accordian .accord-description.open {
-  max-height: 1000px; /* any value larger than actual content */
+  max-height: 532px; /* any value larger than actual content */
   opacity: 1;
 }
