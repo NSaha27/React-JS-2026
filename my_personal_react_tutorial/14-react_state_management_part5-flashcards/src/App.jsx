@@ -69,14 +69,34 @@ const questions = [
 ];
 
 function Flashcard({ questionObj, selectedID, handleActiveID }) {
+  const [toggleFlashCard, setToggleFlashCard] = useState({
+    id: 1,
+    status: false,
+  });
+
   const handleClick = () => {
     handleActiveID(questionObj.id);
   };
 
+  const handleCardToggle = (id) => {
+    setToggleFlashCard((card) => {
+      if (card.id === id) {
+        return { ...card, status: !card.status };
+      } else {
+        return { id: id, status: true };
+      }
+    });
+  };
+
   return (
     <li>
-      <div className="card" onClick={handleClick}>
-        {questionObj.id === selectedID
+      <div
+        className="card"
+        onClick={() => {
+          (handleClick(), handleCardToggle(selectedID));
+        }}
+      >
+        {questionObj.id === selectedID && toggleFlashCard
           ? questionObj.answer
           : questionObj.question}
       </div>
