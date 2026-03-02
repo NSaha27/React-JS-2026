@@ -5,7 +5,7 @@ function App() {
   const [selectedID, setSelectedID] = useState(null);
 
   const handleActiveID = (id) => {
-    setSelectedID(id);
+    setSelectedID(id !== selectedID ? id : null);
   };
 
   return (
@@ -89,11 +89,16 @@ function Flashcard({ questionObj, selectedID, handleActiveID }) {
   };
 
   return (
-    <li>
+    <li className="qnsAnsListItem">
       <div
         className="card"
         onClick={() => {
           (handleClick(), handleCardToggle(selectedID));
+        }}
+        style={{
+          backgroundColor:
+            questionObj.id === selectedID && toggleFlashCard && "#ff4500",
+          color: questionObj.id === selectedID && toggleFlashCard && "#f5f5dc",
         }}
       >
         {questionObj.id === selectedID && toggleFlashCard
