@@ -1,0 +1,16 @@
+.header {
+  /* padding: 1rem 0; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  background-color: #00ffff;
+  color: #00008b;
+}
+.main-title {
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

@@ -1,40 +1,30 @@
-import { useState } from "react";
+import styles from "./css/Item.module.css";
 
-function Item({ itemObj, handleItemPacking, handleDelItem }) {
-  const [isPacked, setIsPacked] = useState(itemObj.isPacked);
-
-  const handleChange = () => {
-    setIsPacked((curIsPackedStat) => !curIsPackedStat);
-  };
-
-  const handleDelFormSubmit = (ev) => {
-    ev.preventDefault();
-    handleDelItem(Number(ev.target.delItemID.value));
-  };
-
+function Item({ itemObj, onItemPacking, onDeleteItem }) {
   return (
-    <span className="item">
+    <span className={styles["item"]}>
       <input
         type="checkbox"
         name="isPacked"
         id="is-packed"
-        value={isPacked}
-        checked={isPacked}
-        onChange={() => {
-          handleChange();
-          handleItemPacking(itemObj.id, !isPacked);
-        }}
+        className={styles["checkbox"]}
+        value={itemObj.isPacked}
+        checked={itemObj.isPacked}
+        onChange={() => onItemPacking(itemObj.id)}
       />
-      <span style={{ textDecoration: isPacked ? "line-through" : "none" }}>
+      <span
+        className={`${styles["item-name"]} ${itemObj.isPacked && styles["line-through"]}`}
+      >
         {" "}
         {itemObj.noOfItems} {itemObj.itemName}
       </span>
-      <form method="post" onSubmit={handleDelFormSubmit}>
-        <input type="hidden" name="delItemID" value={itemObj.id} />
-        <button type="submit" className="del-item-btn">
-          &times;
-        </button>
-      </form>
+      <button
+        type="submit"
+        className={styles["del-item-btn"]}
+        onClick={() => onDeleteItem(itemObj.id)}
+      >
+        &times;
+      </button>
     </span>
   );
 }

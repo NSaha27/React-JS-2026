@@ -1,0 +1,22 @@
+.trip-items-container {
+  background-color: #00008b;
+  padding: 1rem 0;
+}
+.item-list {
+  min-height: 56vh;
+  display: flex;
+  gap: 2.2rem;
+  padding: 1rem 2rem;
+  justify-content: center;
+}
+.no-item-message {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #00ffff;
+}
+.sort-clear-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}

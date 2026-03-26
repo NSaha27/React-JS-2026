@@ -1,7 +1,9 @@
-import { IoMdHappy } from "react-icons/io";
 import { useState } from "react";
+import { IoMdHappy } from "react-icons/io";
 
-function AddTripItems({ addTripItem }) {
+import styles from "./css/AddTripItems.module.css";
+
+function AddTripItems({ onAddTripItem }) {
   const [itemID, setItemID] = useState(1);
   const [formData, setFormData] = useState({
     noOfItems: "",
@@ -17,7 +19,9 @@ function AddTripItems({ addTripItem }) {
   function handleFormSubmit(ev) {
     ev.preventDefault();
 
-    addTripItem({ ...formData, id: itemID, isPacked: false });
+    const newTripItem = { ...formData, id: itemID, isPacked: false };
+
+    onAddTripItem(newTripItem);
 
     setItemID((curID) => curID + 1);
 
@@ -28,15 +32,19 @@ function AddTripItems({ addTripItem }) {
   }
 
   return (
-    <div className="trip-item-add-form">
-      <span>
+    <div className={styles["add-form-container"]}>
+      <span className={styles["form-title"]}>
         What do you need for your <IoMdHappy /> trip?
       </span>
-      <form method="post" onSubmit={handleFormSubmit}>
+      <form
+        method="post"
+        onSubmit={handleFormSubmit}
+        className={styles["form"]}
+      >
         <select
           name="noOfItems"
           id="no-of-items"
-          className="form-control"
+          className={styles["form-control"]}
           value={formData.noOfItems}
           onChange={handleChange}
         >
@@ -55,12 +63,16 @@ function AddTripItems({ addTripItem }) {
           type="text"
           name="itemName"
           id="item-name"
-          className="form-control"
+          className={styles["form-control"]}
           placeholder="item..."
           value={formData.itemName}
           onChange={handleChange}
         />
-        <input type="submit" value="Add" className="form-control btn" />
+        <input
+          type="submit"
+          value="Add"
+          className={`${styles["form-control"]} ${styles["btn"]}`}
+        />
       </form>
     </div>
   );

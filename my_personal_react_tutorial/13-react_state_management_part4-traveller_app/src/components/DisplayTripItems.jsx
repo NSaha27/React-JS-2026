@@ -1,71 +1,80 @@
 import { useState } from "react";
 import Item from "./Item";
 
-function DisplayTripItems({ tripItems, handleItemPacking, handleDelItem }) {
-  const [sortedItems, setSortedItems] = useState([...tripItems]);
-  const [sortItemBy, setSortItemBy] = useState("SBIO");
+import styles2 from "./css/AddTripItems.module.css";
+import styles from "./css/DisplayTripItems.module.css";
 
-  const handleSorting = () => {
-    switch (sortItemBy) {
-      case "SBIO":
-        setSortedItems(tripItems);
-        break;
-      case "SBD":
-        setSortedItems((curItems) => {
-          return curItems.sort((a, b) => a.itemName - b.itemName);
-        });
-        break;
-      case "SBPS":
-        setSortedItems((curItems) => {
-          return curItems.sort((a, b) => a.isPacked - b.isPacked);
-        });
-        break;
-      default:
-        setSortedItems(tripItems);
-    }
-    console.log(sortItemBy, sortedItems);
-  };
+function DisplayTripItems({
+  tripItems,
+  onItemPacking,
+  onDeleteItem,
+  onClearList,
+  onSortByInputOrder,
+  onSortByDescription,
+  onSortByPackingStatus,
+}) {
+  const [sortItemBy, setSortItemBy] = useState("SBIO");
 
   const handleItemSortBy = (ev) => {
     const { value } = ev.target;
+    switch (value) {
+      case "SBIO":
+        onSortByInputOrder();
+        break;
+      case "SBD":
+        onSortByDescription();
+        break;
+      case "SBPS":
+        onSortByPackingStatus();
+        break;
+      default:
+        onSortByInputOrder();
+    }
     setSortItemBy(value);
   };
 
   return (
-    <div className="display-trip-items">
-      <div className="item-list">
+    <div className={styles["trip-items-container"]}>
+      <div className={styles["item-list"]}>
         {tripItems.length > 0 ? (
           tripItems.map((item) => {
             return (
               <Item
                 itemObj={item}
-                handleItemPacking={(id, packStatus) =>
-                  handleItemPacking(id, packStatus)
-                }
-                handleDelItem={(id) => handleDelItem(id)}
+                onItemPacking={onItemPacking}
+                onDeleteItem={onDeleteItem}
                 key={item.id}
               />
             );
           })
         ) : (
-          <h2 className="">no item is yet added!</h2>
+          <h2 className={styles["no-item-message"]}>no item is yet added!</h2>
         )}
       </div>
-      <div className="sort-clear-items">
+      <div className={styles["sort-clear-items"]}>
         <select
           name="sortItem"
           id="sortItem"
-          className="sort-item"
+          className={styles2["form-control"]}
           value={sortItemBy}
-          onChange={(ev) => {
-            handleItemSortBy(ev);
-            handleSorting();
-          }}
+          onChange={handleItemSortBy}
         >
           <option value="SBIO">SORT BY INPUT ORDER</option>
           <option value="SBD">SORT BY DESCRIPTION</option>
           <option value="SBPS">SORT BY PACKED STATUS</option>
         </select>
+        <button
+          className={`${styles2["form-control"]} ${styles2["btn"]}`}
+          onClick={() => {
+            const clearList = confirm(
+              "are you sure, you want to clear the packing list? 🤔",
+            );
+            if (!clearList) return false;
+            onClearList();
+          }}
+        >
+          Clear List
+        </button>
       </div>
     </div>
   );

@@ -1,0 +1,36 @@
+.add-form-container {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #0066ff;
+}
+.form-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #00ffff;
+}
+.form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.form-control {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: #00ffff;
+  border: 2px solid #00008b;
+  border-radius: 0.5rem;
+  color: #00008b;
+}
+.btn {
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn:hover {
+  background-color: #00008b;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+}

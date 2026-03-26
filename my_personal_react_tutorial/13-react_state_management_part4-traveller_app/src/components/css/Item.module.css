@@ -1,0 +1,23 @@
+.item {
+  /* gap: 0.3rem; */
+}
+.item-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #00ffff;
+  margin: 0 5px;
+}
+.checkbox {
+  border: 1px solid #00ffff;
+}
+.line-through {
+  text-decoration: line-through;
+  color: #ff4500;
+}
+.del-item-btn {
+  border: 0;
+  background-color: #00008b;
+  color: #ff4500;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
