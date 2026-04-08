@@ -1,0 +1,16 @@
+.grand-parent {
+  max-width: 50%;
+  padding: 4rem;
+  background-color: #ff9900;
+}
+.parent {
+  padding: 4rem;
+  background-color: #ffd000;
+}
+.child {
+  padding: 3rem;
+  background-color: #ffff00;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
