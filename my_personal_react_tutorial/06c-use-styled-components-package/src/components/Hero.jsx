@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { styled } from "styled-components";
 
 const Portfolio = styled.div`
-  padding: 3rem 5rem;
+  padding: 3rem 6rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,6 +56,10 @@ const ButtonEl = styled.button`
   &:nth-child(1):hover {
     background-color: #470175;
   }
+  &:nth-child(2) {
+    background-color: ${({ $clicked }) => ($clicked ? "#aa3bff" : "#fff")};
+    color: ${({ $clicked }) => ($clicked ? "#fff" : "#404040")};
+  }
 `;
 const PortfolioImageContainer = styled.div`
   display: flex;
@@ -76,6 +81,7 @@ const PortfolioImage = styled.img`
 `;
 
 function Hero() {
+  const [clicked, setClicked] = useState(false);
   return (
     <Portfolio id="hero">
       <PortfolioDetailsContainer>
@@ -91,7 +97,9 @@ function Hero() {
         </PortfolioShortDesc>
         <ContactBtnContainer>
           <ButtonEl>Get In Touch</ButtonEl>
-          <ButtonEl>Browse Projects</ButtonEl>
+          <ButtonEl onClick={() => setClicked(!clicked)} $clicked={clicked}>
+            Browse Projects
+          </ButtonEl>
         </ContactBtnContainer>
       </PortfolioDetailsContainer>
       <PortfolioImageContainer>
