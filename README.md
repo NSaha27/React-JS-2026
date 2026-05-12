@@ -42,3 +42,19 @@ It does the following two things -
 - It is an extension of JavaScript code that embeds HTML, CSS, and JavaScript code and sometimes another React component to an HTML,
 - Each JSX code is converted to a React.createElement() function call,
 - We could use React without any JSX code
+
+### Q. What is Derived State?
+
+A derived state is a state that is computed from another state or a prop.
+
+- When a value can be computed from another state, we don't need to create a seperate state for it, we can simply create a variable for that and assign it the value derived from an existing state.
+- It reduces code duplication, keeps a component's states simple and more manageable.
+
+### Q. What is Redux?
+
+Redux is a predictable state management library of any JavaScript application.
+
+### Q. Important points on Redux and React-Redux package
+
+- Redux is a library for managing states in a predictable way in JavaScript Applications,
+- React-Redux is a library to bind React and Redux together in an application,
