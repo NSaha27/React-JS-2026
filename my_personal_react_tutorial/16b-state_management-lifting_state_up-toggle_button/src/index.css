@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-darktoggle: darktoggle 0.3s forwards;
+  --animate-lighttoggle: lighttoggle 0.3s backwards;
+
+  @keyframes darktoggle {
+    from {
+      left: 0rem;
+    }
+    to {
+      left: 1.75rem;
+    }
+  }
+  @keyframes lighttoggle {
+    from {
+      left: 1.75rem;
+    }
+    to {
+      left: 0rem;
+    }
+  }
+}
