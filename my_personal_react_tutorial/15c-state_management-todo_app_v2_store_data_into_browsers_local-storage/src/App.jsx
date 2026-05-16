@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import AddTodo from "./components/AddTodo";
 import ClearAllTodos from "./components/ClearAllTodos";
 import DisplayTodos from "./components/DisplayTodos";
 import Header from "./components/Header";
 
+const localStorageAPIKey = "todos";
+
 function App() {
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState(() => {
+    const savedTodoList = localStorage.getItem(localStorageAPIKey);
+    return JSON.parse(savedTodoList) || [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem(localStorageAPIKey, JSON.stringify(todoList));
+  }, [todoList]);
+
   const timer = {
     date: new Date().toLocaleDateString(),
     time: new Date().toLocaleTimeString(),

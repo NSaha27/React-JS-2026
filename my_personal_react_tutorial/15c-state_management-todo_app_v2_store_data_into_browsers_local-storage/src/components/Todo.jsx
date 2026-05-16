@@ -1,5 +1,5 @@
 import { FaCheckCircle } from "react-icons/fa";
-import { MdDeleteForever } from "react-icons/md";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 function Todo({ todo, id, onCompleteTodo, onDeleteTodo }) {
   return (
@@ -14,7 +14,7 @@ function Todo({ todo, id, onCompleteTodo, onDeleteTodo }) {
         className={`text-xl ${todo.isDone ? "text-green-500" : "text-red-500"}`}
         onClick={() => onCompleteTodo(id)}
       />
-      <MdDeleteForever
+      <RiDeleteBin5Fill
         className="text-2xl text-red-500"
         onClick={() => onDeleteTodo(id)}
       />

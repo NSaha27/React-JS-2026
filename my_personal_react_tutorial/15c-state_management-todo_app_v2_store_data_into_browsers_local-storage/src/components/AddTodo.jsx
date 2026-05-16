@@ -28,7 +28,7 @@ function AddTodo({ onAddTodo }) {
           type="text"
           name="todoData"
           id="todoData"
-          className="w-full bg-white p-2.5 rounded-l-3xl text-lg font-semibold text-gray-900"
+          className="w-full bg-white py-2.5 px-4 rounded-l-3xl text-lg font-semibold text-gray-900"
           placeholder="enter your todo details here..."
           value={todo}
           onChange={handleInputChange}
