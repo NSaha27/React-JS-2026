@@ -3,7 +3,7 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 
 function Todo({ todo, id, onCompleteTodo, onDeleteTodo }) {
   return (
-    <div className="w-full py-3 px-5 bg-white rounded-3xl flex items-center justify-between">
+    <div className="w-full py-3 px-5 bg-white rounded-3xl flex items-center justify-around">
       <span className={`${todo.isDone ? "line-through" : "none"}`}>
         {todo.todo}
       </span>
