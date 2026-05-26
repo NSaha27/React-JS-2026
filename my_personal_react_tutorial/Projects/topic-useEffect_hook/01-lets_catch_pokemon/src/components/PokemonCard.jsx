@@ -13,7 +13,7 @@ export default function PokemonCard({ pokemonData }) {
           {pokemonData["name"]}
         </h3>
         <div className="flex mb-12">
-          <span className="mx-auto py-2 px-3 rounded-2xl bg-green-300 font-semibold text-green-950 w-32 text-center">
+          <span className="mx-auto py-2 px-3 rounded-2xl bg-green-300 font-semibold text-green-950 w-40 text-center">
             {pokemonData["types"].map((type) => {
               return type["type"]["name"] + " ";
             })}
@@ -27,7 +27,7 @@ export default function PokemonCard({ pokemonData }) {
             <b>Weight:</b> {pokemonData["weight"]}
           </span>
           <span className=" text-green-950">
-            <b>Speed:</b> {0}
+            <b>Speed:</b> {pokemonData["stats"][5]["base_stat"]}
           </span>
         </div>
         <div className="flex items-center justify-around mb-4">
@@ -37,7 +37,7 @@ export default function PokemonCard({ pokemonData }) {
             <b>Experience</b>
           </span>
           <span className="text-center text-green-950">
-            {}
+            {pokemonData["stats"][1]["base_stat"]}
             <br />
             <b>Attack</b>
           </span>
