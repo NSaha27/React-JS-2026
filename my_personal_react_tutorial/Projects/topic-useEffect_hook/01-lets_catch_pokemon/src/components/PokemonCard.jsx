@@ -1,6 +1,4 @@
 export default function PokemonCard({ pokemonData }) {
-  console.log(pokemonData);
-
   return (
     <div className="py-8 px-4 border border-gray-200 shadow-lg shadow-gray-400 hover:shadow-2xl hover:shadow-gray-400 transition-[0.2s]">
       <div className="min-h-36 flex justify-center">
