@@ -50,6 +50,22 @@ A derived state is a state that is computed from another state or a prop.
 - When a value can be computed from another state, we don't need to create a seperate state for it, we can simply create a variable for that and assign it the value derived from an existing state.
 - It reduces code duplication, keeps a component's states simple and more manageable.
 
+### Q. Controlled Elements?
+
+Controlled elements are those elements that are fully controlled by React. For example, form elements.
+
+- In form element, values of all the input fields are controlled by React state,
+- All the events like, input-change, form-submit, etc. are controlled by React Event Handlers (onChange, onSubmit, etc.),
+- Event-handlers with the help of React state tracks input changes and store updated values into the state variables, then the state variable updates the values in the input fields.
+
+### Q. Uncontrolled Elements?
+
+Uncontrolled elements on the other hand, are fully controlled by DOM and not by React.
+
+- In form element, values of all the input fields are controlled by DOM,
+- DOM with help of its event-handler functions (onchange, onsubmit, etc.) handles all the events, like - input-change, form-submission, etc.
+- Form data is accessed through refs or DOM traversal methods, not through React state.
+
 ### Q. What is Redux?
 
 Redux is a predictable state management library of any JavaScript application.
