@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #00ffff;
+}
+.project-title {
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  font-family: sans-serif;
+  color: #000080;
+  padding: 0;
+  margin: 0;
+}
+.timer {
+  font-size: 1.7rem;
+  font-weight: 600;
+  font-family: "Times New Roman", Times, serif;
+  color: #0000ff;
+}
+
+@media screen and (max-width: 676px) {
+  .container {
+    gap: 0.8rem;
+  }
+  .project-title {
+    font-size: 2.5rem;
+  }
+  .timer {
+    font-size: 1.3rem;
+  }
+}
