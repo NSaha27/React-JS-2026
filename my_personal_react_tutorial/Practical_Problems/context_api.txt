@@ -1,0 +1,46 @@
+Beginner Level (Foundations)
+Theme Switcher  
+Create a simple app where users can toggle between light and dark themes using Context.
+Focus: Provide global state (theme) and consume it across multiple components.
+
+Language Selector  
+Build a multilingual app that switches text labels based on selected language.
+Focus: Context for global preferences and dynamic rendering.
+
+🌿 Intermediate Level (Applied Use Cases)
+Authentication Context  
+Implement a login/logout flow with Context storing user data and authentication status.
+Focus: Managing user state globally without prop drilling.
+
+Shopping Cart Context  
+Create a cart system where items can be added/removed and the total updates across components.
+Focus: Complex state management with multiple consumers.
+
+Notification System  
+Build a toast/alert system using Context to trigger global notifications from any component.
+Focus: Event-driven updates and centralized state.
+
+🌳 Advanced Level (Portfolio-Ready Projects)
+Role-Based Dashboard  
+Create a dashboard where Context manages user roles (admin, editor, viewer) and conditionally renders features.
+Focus: Context + conditional rendering for access control.
+
+Global API State Manager  
+Use Context with useEffect to fetch data (e.g., posts, products) and share it across the app.
+Focus: Combining Context with side effects and API integration.
+
+Custom Context Middleware  
+Build a Context that not only stores state but also provides helper functions (like reducers or async actions).
+Focus: Advanced patterns — mimicking Redux-like behavior with Context.
+
+Multi-Context Integration Project  
+A full app (e.g., task manager) using multiple contexts: Auth, Theme, Notifications, and Data.
+Focus: Orchestrating multiple contexts together for scalable architecture.
+
+💡 Tip for progression:
+
+Start with single-context apps (theme, language).
+
+Move to stateful contexts (cart, auth).
+
+Finally, tackle multi-context orchestration (dashboard/task manager).
