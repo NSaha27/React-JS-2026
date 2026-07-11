@@ -1,24 +1,23 @@
 import { useReducer } from "react";
 
+const initialState = {
+  count: 0,
+};
+
 export default function Counter() {
   const reducer = (state, action) => {
     switch (action.type) {
       case "INCREMENT":
-        state += 1;
-        return state;
+        return { ...state, count: state["count"] + 1 };
       case "DECREMENT":
-        if (state > 0) {
-          state -= 1;
-        }
-        return state;
+        return { ...state, count: state["count"] > 0 ? state["count"] - 1 : 0 };
       case "RESET":
-        state = 0;
-        return state;
+        return { ...state, count: 0 };
       default:
         return state;
     }
   };
-  const [count, dispatch] = useReducer(reducer, 0);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleDecrement = () => {
     return dispatch({ type: "DECREMENT" });
@@ -43,7 +42,7 @@ export default function Counter() {
             name=""
             id=""
             className=""
-            value={count}
+            value={state["count"]}
             readOnly={true}
           />
           <button className="" onClick={handleIncrement}>
