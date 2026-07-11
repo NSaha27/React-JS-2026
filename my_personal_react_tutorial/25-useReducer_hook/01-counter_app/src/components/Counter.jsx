@@ -4,14 +4,16 @@ export default function Counter() {
   const reducer = (state, action) => {
     switch (action.type) {
       case "INCREMENT":
-        return state + 1;
+        state += 1;
+        return state;
       case "DECREMENT":
         if (state > 0) {
           state -= 1;
         }
         return state;
       case "RESET":
-        return 0;
+        state = 0;
+        return state;
       default:
         return state;
     }
