@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import Card from "./components/Card";
 import AddFood from "./components/AddFood";
+import Card from "./components/Card";
 
 function App() {
   const [foods, setFoods] = useState([]);
@@ -9,8 +9,8 @@ function App() {
     const options = {};
     if (foods.length > 0) {
       for (let food of foods) {
-        if (Object.keys(options).includes(food["category"])) continue;
-        options[food["category"]] = false;
+        if (Object.keys(options).includes(food.category)) continue;
+        options[food.category] = false;
       }
     }
     return options;
@@ -34,6 +34,7 @@ function App() {
       }
       return newFoodList;
     });
+    setDisplayAddFoodForm(false);
   };
 
   return (
@@ -78,7 +79,7 @@ function App() {
           <div className="">
             {foods.length > 0 ? (
               foods.map((food) =>
-                menus[food["category"]] ? <Card food={food} /> : null,
+                menus[food.category] ? <Card food={food} /> : null,
               )
             ) : (
               <h2>No food is yet available!</h2>
