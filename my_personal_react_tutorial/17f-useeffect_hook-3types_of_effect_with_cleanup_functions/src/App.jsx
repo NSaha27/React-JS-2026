@@ -4,7 +4,8 @@
 // import EffectWithCleanupFunction from "./components/EffectWithCleanupFunction";
 // import EffectWithCleanupFunction from "./components/EffectWithCleanupFunctionPart2";
 // import HandleAPIResponse from "./components/HandleAPIResponse";
-import HandleLoadingAPIDataAndError from "./components/HandleLoadingAPIDataAndError";
+// import HandleLoadingAPIDataAndError from "./components/HandleLoadingAPIDataAndError";
+import HandleBrowsersOnlineOffline from "./components/HandleBrowsersOnlineOffline";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       {/* <EffectWithCleanupFunction /> */}
       {/* <EffectWithCleanupFunction /> */}
       {/* <HandleAPIResponse /> */}
-      <HandleLoadingAPIDataAndError />
+      {/* <HandleLoadingAPIDataAndError /> */}
+      <HandleBrowsersOnlineOffline />
     </>
   );
 }

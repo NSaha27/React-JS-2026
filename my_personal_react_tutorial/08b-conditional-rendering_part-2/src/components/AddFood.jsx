@@ -34,12 +34,7 @@ export default function AddFood({ onAddingFood }) {
     <div className="">
       <h2>Add Food</h2>
       <div className="">
-        <form
-          action=""
-          method="post"
-          encType="multipart/formdata"
-          onSubmit={handleFormSubmit}
-        >
+        <form action="" method="post" onSubmit={handleFormSubmit}>
           <div className="">
             <label htmlFor="title" className="">
               Title
@@ -113,6 +108,8 @@ export default function AddFood({ onAddingFood }) {
               className=""
               value={formData.description}
               onChange={handleInputChange}
+              rows={8}
+              cols={21}
             ></textarea>
           </div>
           <div className="">
@@ -149,11 +146,11 @@ export default function AddFood({ onAddingFood }) {
             </label>
             <br />
             <input
-              type="file"
+              type="url"
               name="img"
               id="img"
               className=""
-              placeholder="Select an image"
+              placeholder="Enter an image url"
               value={formData.img}
               onChange={handleInputChange}
             />
