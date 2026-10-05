@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function HandleBrowsersOnlineOffline() {
-  const [isOnline, setIsOnline] = useState(true);
-
   useEffect(() => {
     const handleOnline = () => {
-      setIsOnline(true);
+      console.log("You're now online!");
     };
     const handleOffline = () => {
-      setIsOnline(false);
+      console.log("You're now offline!");
     };
 
     window.addEventListener("online", handleOnline);
@@ -22,7 +20,7 @@ function HandleBrowsersOnlineOffline() {
 
   return (
     <div className="">
-      <h2 className="">You're now {isOnline}</h2>
+      <h2 className="">Welcome to browser's online/offline status</h2>
     </div>
   );
 }
